@@ -6,7 +6,7 @@
 
 
 function custom_woo_cart_count ($atts) {
-  $output = '<a class="cart-customlocation">(' . WC()->cart->get_cart_contents_count() . ')</a>';
+  $output = '<span class="cart-customlocation">(' . WC()->cart->get_cart_contents_count() . ')</span>';
 
   return $output;
 }
@@ -18,10 +18,10 @@ function woocommerce_header_add_to_cart_fragment( $fragments ) {
 	ob_start();
 
   ?>
-    <a class="cart-customlocation">(<?php echo $woocommerce->cart->cart_contents_count ?>)</a>
+    <span class="cart-customlocation">(<?php echo $woocommerce->cart->cart_contents_count ?>)</span>
   <?php
 
-  $fragments['a.cart-customlocation'] = ob_get_clean();
+  $fragments['span.cart-customlocation'] = ob_get_clean();
 	return $fragments;
 }
 add_filter('add_to_cart_fragments', 'woocommerce_header_add_to_cart_fragment');
